@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "49153b6f-656c-4062-ac0e-02702a5ea474",
+		"name": "Primo",
+		"description": "### This Collection tracks all the endpoints being written for the interview application.\n\n- Auth Endpoints - Merged\n    \n- Job Endpoints - **Under Review**\n    \n- Interview Endpoints - Progressing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14277613"
+	},
+	"item": [
+		{
+			"name": "Interview Transcripts",
+			"item": [
+				{
+					"name": "Get all Interviews transcripts for user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/:user_id/transcripts/interviews?page=1&recent=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								":user_id",
+								"transcripts",
+								"interviews"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "recent",
+									"value": "true"
+								}
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "102683875506239003993"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new interview transcripts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"uuid\": \"396ebce8-890d-499f-a975-524a39d4e505\",\r\n    \"responseCollection\": [\r\n        {\r\n            \"question\": \"Hello! Thank you for taking the time to discuss your candidacy for the Product Manager opening. As a first question, if you were a product, what kind would you be and why?\",\r\n            \"answer\": \"1, 2, 3, 1, 2, 3.\",\r\n            \"catergory\": \"Test\"\r\n        },\r\n        {\r\n            \"question\": \"Can you describe a time when you faced a significant product challenge, how you solved it and what were the results?\",\r\n            \"answer\": \"உணாநிக ப஦ியல நா பணியாகது நால஗ா இதாஂ பணியாகதु நால஗ா ஆ ஆபசாரக्க இதாஂ பணியாகதु நால஗ா �\",\r\n            \"catergory\": \"Test\"\r\n        },\r\n        {\r\n            \"question\": \"If given an opportunity to change one key functionality on a successful product you've worked on, what would it be and why?\",\r\n            \"answer\": \"Let's\",\r\n            \"catergory\": \"Test\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/:user_id/transcripts/interviews",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								":user_id",
+								"transcripts",
+								"interviews"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "102683875506239003993"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Interview transcript by interview id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/:user_id/transcripts/interviews/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								":user_id",
+								"transcripts",
+								"interviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "102683875506239003993"
+								},
+								{
+									"key": "id",
+									"value": "664ba8c6cc166a0363f5907f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates a particular interview transcript",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"responseArray\":[\r\n        {\r\n        \"question\":\"Test\",\r\n        \"answer\":\"Test\",\r\n        \"catergory\":\"Technical\"\r\n    }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/:user_id/transcripts/interviews/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								":user_id",
+								"transcripts",
+								"interviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "102683875506239003993"
+								},
+								{
+									"key": "id",
+									"value": "6638f435cd9ee192b19d5c78"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Collection that Tracks all the endpoints regarding Interview"
+		},
+		{
+			"name": "Interviews",
+			"item": [
+				{
+					"name": "Get All Interviews for a User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/:user_id/interviews",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								":user_id",
+								"interviews"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "populate",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Returns the Job Collection of a user."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Interview by Id for a User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/:user_id/jobs/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								":user_id",
+								"jobs",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "102683875506239003993"
+								},
+								{
+									"key": "id",
+									"value": "6643c1f28c781ea00b1a5a8c"
+								}
+							]
+						},
+						"description": "Returns specific Job from the Job collection based on job ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Interview for  User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobName\":\"Java Developer\",\r\n    \"jobDescription\":\"15+ years of Development in JAVA\",\r\n    \"interviewTranscript\":\"664bb2dec201d293f263c85f\",\r\n    \"interviewState\":\"completed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/:user_id/interviews",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								":user_id",
+								"interviews"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Creates a new job collection in the database if no job collection pertaining of user exists or update the job collection with a new job."
+					},
+					"response": []
+				}
+			],
+			"description": "Collection that Tracks all the endpoints for Jobs"
+		},
+		{
+			"name": "Dev",
+			"item": [
+				{
+					"name": "Generate Dev Login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/login/dev",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login",
+								"dev"
+							]
+						},
+						"description": "Generates Dummy Access Token with 1hr expiry and sub that is used as the user_id"
+					},
+					"response": []
+				}
+			],
+			"description": "Collection tracking all dev related endpoints",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjMwMDAvYXBpL3YxIiwic3ViIjoiMTAyNjgzODc1NTA2MjM5MDAzOTkzIiwicm9sZSI6InJvbF82eEVtMGFvdHRnTk1TeGpjIiwiaWF0IjoxNzE2MjM4NTg3LCJleHAiOjE3MTYyNDIxODd9.ASI3OCiRrjv0rclXkNMVNtl-TkdAw0fPkQHM0Zp5ri8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

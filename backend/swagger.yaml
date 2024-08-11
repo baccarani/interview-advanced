@@ -1,0 +1,237 @@
+openapi: '3.0.0'
+info:
+  title: REST API for Primo
+  version: '1.0.0'
+  description: |
+    Primo is a application that helps with interviews
+    ### Check out its awesome features:
+
+    * Setup mock interviews to help ace them IRL 🌃
+    * Google Signin/Signup 😎
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    email: test@gmail.com
+servers:
+  - url: http://localhost:3000/api/v1
+tags:
+  - name: Authentication
+    description: Endpoint to authenticate users
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+  - name: Profile
+    description: Access to user's profile.
+    externalDocs:
+      description: Find out more about our store
+      url: http://swagger.io
+  - name: Feedback
+    description: Operations on Interview's Feedback
+paths:
+  /auth:
+    get:
+      tags:
+        - Authentication
+      summary: Add new user / authenticate existing user
+      description: Add new user / authenticate existing user post google signup
+      operationId: authUser
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+        '422':
+          description: Validation exception
+        '500':
+          description: Server Error
+      security:
+        - bearerAuth: []
+components:
+  schemas:
+    profile:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Test
+        email:
+          type: string
+          format: email
+          example: test@mgail.cin
+        picture:
+          type: string
+          example: asdalksjasd
+        user_id:
+          type: string
+          example: as1239as123
+        _id:
+          type: string
+          example: as1239as123
+      xml:
+        name: profile
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 100000
+        username:
+          type: string
+          example: fehguy
+        address:
+          type: array
+          xml:
+            name: addresses
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/Address'
+      xml:
+        name: customer
+    Address:
+      type: object
+      properties:
+        street:
+          type: string
+          example: 437 Lytton
+        city:
+          type: string
+          example: Palo Alto
+        state:
+          type: string
+          example: CA
+        zip:
+          type: string
+          example: '94301'
+      xml:
+        name: address
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: Dogs
+      xml:
+        name: category
+    User:
+      type: object
+      properties:
+        status:
+          type: string
+          example: Success
+        profile:
+          $ref: '#/components/schemas/profile'
+        access_token:
+          type: string
+          example: qweulqkwjhdlaksjdasdqweasdqwe
+      xml:
+        name: user
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+      xml:
+        name: tag
+    Pet:
+      required:
+        - name
+        - photoUrls
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        name:
+          type: string
+          example: doggie
+        category:
+          $ref: '#/components/schemas/Category'
+        photoUrls:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            type: string
+            xml:
+              name: photoUrl
+        tags:
+          type: array
+          xml:
+            wrapped: true
+          items:
+            $ref: '#/components/schemas/Tag'
+        status:
+          type: string
+          description: pet status in the store
+          enum:
+            - available
+            - pending
+            - sold
+      xml:
+        name: pet
+    ApiResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        type:
+          type: string
+        message:
+          type: string
+      xml:
+        name: '##default'
+  requestBodies:
+    Pet:
+      description: Pet object that needs to be added to the store
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Pet'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Pet'
+    UserArray:
+      description: List of user object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/User'
+  securitySchemes:
+    petstore_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://petstore3.swagger.io/oauth/authorize
+          scopes:
+            write:pets: modify pets in your account
+            read:pets: read your pets
+    bearerAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header

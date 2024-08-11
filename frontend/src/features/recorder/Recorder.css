@@ -1,0 +1,50 @@
+.custom-block {
+    position: relative;
+    margin: 10% auto 0;
+    width: 50%;
+    height: 400px;
+    background: linear-gradient(0deg)
+}
+
+.glow::before,
+.glow::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    left: -4px;
+    top: -4px;
+    background: linear-gradient(45deg, #3B82F6, #EF4444);
+   
+    background-size: 250% 250%;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    z-index: -1;
+    animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.glow::after {
+    filter: blur(0px);
+}
+
+.glow-red::before,
+.glow-red::after {
+    background: linear-gradient(45deg, #ff0000, #ff1a1a, #ff3333, #ff4d4d, #ff6666, #ff8080, #ff9999, #ffb3b3, #474747);
+}
