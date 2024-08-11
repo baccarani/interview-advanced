@@ -5,6 +5,7 @@ Steps to run the React Vite app locally:
 1. Run `npm i`
 2. Run `npm run dev`
 3. Navigate to http://localhost:5173/
+4. ENV variables will be required to run the application. Please contact the development team for assistance with this as needed.
 
 # Testing
 
