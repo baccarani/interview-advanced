@@ -35,7 +35,7 @@ export const FaqAccordion = () => {
     {
       question: 'What languages are supported?',
       answer:
-        "Currently, we support English. You can answer in almost any language, and they'll be translated to English.",
+        "Currently, we support English.",
     },
     {
       question: 'Do you retain my data and audio files?',
