@@ -1,4 +1,4 @@
-# Chatter---frontend
+# Interview Advanced---frontend
 
 Steps to run the React Vite app locally:
 
