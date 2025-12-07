@@ -15,10 +15,6 @@ Web/Chrome - for Google OAuth
 
 Other Google Developer tools/products being used include Google OAuth and GCP for the setup of using Gemini APIs and Google AI TTS and STT.
 
-## YouTube URL
-
-[![Interview Advanced | Google AI | Gemini API Developer Competition 2024](https://img.youtube.com/vi/BQSBft5yQfM/0.jpg)](https://www.youtube.com/watch?v=BQSBft5yQfM)
-
 ## Test Instructions
 
 1. Enter/Select the job you want to interview for; 
